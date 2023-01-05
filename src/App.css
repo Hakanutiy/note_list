@@ -1,0 +1,13 @@
+.App_wrapper{
+  background-image: url('./credo_01.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+height: 850px;
+}
+
+.App_wrappernight{
+  background-image: url('./credo_02.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+height: 850px;
+}

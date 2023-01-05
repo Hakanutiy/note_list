@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Press+Start+2P&display=swap');
+
+
+.note__name{
+    font-family: 'Roboto Slab', cursive;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+.note__text{
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto Slab', cursive;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+   
+}
+.note__textarea{
+    width: 700px;
+    height: 100px;
+}
+
+.note__buttonpost{
+    display: flex;
+    margin-top: 5px;
+}
+
+
+.note__burder{
+    margin-top: 15px;
+    border-bottom: 1px solid black;
+}

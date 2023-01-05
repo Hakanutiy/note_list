@@ -1,0 +1,23 @@
+.global__title{
+  display: flex;
+  
+  margin: 0;
+   text-align: center;
+}
+
+.global__image{
+  margin-top: -178px;
+  margin-left: 734px;
+}
+
+.globallink{
+  display: flex;
+  justify-content: center;
+  height: 24px;
+}
+
+.global__text{
+  font-size: 18px;
+  font-weight: bold;
+ 
+}
