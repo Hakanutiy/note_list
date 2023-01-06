@@ -1,9 +1,9 @@
 import React from 'react';
 import './note.css'
-import Noteaddpost from './noteaddpost'
+import Noteaddpost from './noteaddpostContainer'
 
 
 function Note(props) {
- return <Noteaddpost noteData ={props.Postpage.noteData}  newPostText ={props.Postpage.newPostText} dispatch = {props.dispatch}/>
+ return <Noteaddpost />
 }
 export default Note

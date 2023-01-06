@@ -1,28 +1,34 @@
 import React from 'react';
 import './note.css'
-import NotePost from './notepost'
+
 import {addPostActionCreation, onPostChangeActionCreation} from '../../redux/reducer/postreducer.js'
-import {connect} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import Noteaddpost from './noteaddpost.js'
 
-function Noteaddpost(props){
-let postElement = props.noteData.map(listen =><NotePost message = {listen.message} />)
-let newaddpost = React.createRef()
-  return(<Noteaddpost />)
+function NoteaddpostContainer(props){
+  const state = props.Postpage;
+
+  const postElement = useSelector(state => state.Postpage.noteData)
+  const dispatch = useDispatch() 
+  const addpost = () => dispatch(addPostActionCreation())
+  const updateNewPostText = (text) => dispatch(onPostChangeActionCreation(text))
+  return(<Noteaddpost noteData={postElement}  addpost ={addpost} updateNewPostText ={updateNewPostText} />)
+
 }
 
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
   return{
-    Postpage: state.Postpage
+      PostPage: state.PostPage
   }
-}
-
-function mapDispatchToProps(dispatch){
+  }
+  
+  function mapDispathToProps(dispatch) {
   return{
-
-    addpost: () => dispatch(addPostActionCreation()),
-    updatenewMessageBody: (text) =>  onPostChangeActionCreation(text)
+      
+      addpost: () => dispatch(addPostActionCreation()),
+      updateNewPostText: (text) => dispatch(onPostChangeActionCreation(text))
   }
-}
+  }
 
-export default connect(mapStateToProps , mapDispathToProps)(NoteaddpostContainer);
+export default NoteaddpostContainer;

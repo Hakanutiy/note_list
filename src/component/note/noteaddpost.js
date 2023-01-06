@@ -1,37 +1,39 @@
 import React from 'react';
 import './note.css'
 import NotePost from './notepost'
-import {addPostActionCreation, onPostChangeActionCreation} from '../../redux/reducer/postreducer.js'
+import { useState } from 'react';
 
 function Noteaddpost(props){
-let postElement = props.noteData.map(listen =><NotePost message = {listen.message} />)
-let newaddpost = React.createRef()
-
-function addpost(){
-    props.dispatch(addPostActionCreation())
   
-}
+  
 
-let onPostChange = () => {
-    let text = newaddpost.current.value
-        props.dispatch(onPostChangeActionCreation(text))
-        
-}
+  function addpost(){
+  props.addpost()
+  
+    }
 
+  const[newPostText, setNewPostText] = useState('Опубликовать') 
 
+const onPostChange = (e) => {
+   setNewPostText(e.target.value)
+  }
+ 
   return(
+  
       <div className="note__list">
+        
         <div className='note_addpost'>
-          <textarea className='note__textarea' onChange={onPostChange} ref={newaddpost} value ={props.newPostText}></textarea>
+          <textarea className='note__textarea' onChange={onPostChange} value ={newPostText}></textarea>
           <button className='note__buttonpost' onClick={addpost}>Добавить пост</button>
         </div>
         
         <div className='posts'>
-                    {postElement}
+          {props.noteData?.map(listen =>  <NotePost key = {listen.id} message = {listen.message}  />)}
                     
                 </div>
 
       </div>
   )
+  
 }
-  export default Noteaddpost
+  export default Noteaddpost;
