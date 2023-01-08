@@ -9,13 +9,15 @@ function Noteaddpost(props){
 
   function addpost(){
   props.addpost()
-  
+  setNewPostText('')
     }
 
   const[newPostText, setNewPostText] = useState('Опубликовать') 
 
 const onPostChange = (e) => {
    setNewPostText(e.target.value)
+   props.updateNewPostText(newPostText)
+   
   }
  
   return(
